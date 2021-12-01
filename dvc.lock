@@ -36,3 +36,29 @@ stages:
     - path: output/train/train_loss.csv
       md5: bda2a9185d08e3e3561556ebc7c3a553
       size: 32
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: output/data.pkl
+      md5: 35353c71da0985eed8bb507bbc53bd91
+      size: 54950285
+    - path: output/model.h5
+      md5: 30b62a3c26e62fe189cd5ea7538d7a20
+      size: 637888
+    - path: src/evaluate.py
+      md5: a08b8b0db5c72933b81283ef580cfaac
+      size: 3214
+    outs:
+    - path: output/metrics.json
+      md5: a191bbb5e088f009b8fb23757ec33e1c
+      size: 60
+    - path: output/test/mislabel_samples/
+      md5: 1d76d79d8efbeb6debfc3394fd4d9380.dir
+      size: 170568
+      nfiles: 10
+    - path: output/test/predicted_classes.json
+      md5: 1e56851f6753c8c1208c0884a17f23d0
+      size: 284
+    - path: output/test/predictions.json
+      md5: 29541d5e51bda93fe265ce492a66acf8
+      size: 310000
